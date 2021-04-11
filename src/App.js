@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import Form from './components/Form';
 import Header from './components/Header';
 import {
   Container,
@@ -27,6 +28,7 @@ const App = () => {
       <Container>
         <GlobalStyles width={width} />
         <Header theme={theme} toggleTheme={toggleTheme} />
+        <Form />
       </Container>
     </ThemeProvider>
   );

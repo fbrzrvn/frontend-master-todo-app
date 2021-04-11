@@ -1,5 +1,6 @@
 import {
   ADD_TODO,
+  CLEAR_COMPLETE,
   REMOVE_TODO,
   TOGGLE_COMPLETE,
 } from '../constants/actionTypes';
@@ -20,6 +21,8 @@ const TodoReducer = (todos = [], action) => {
             }
           : todo
       );
+    case CLEAR_COMPLETE:
+      return todos.filter(todo => !todo.complete);
     default:
       return todos;
   }

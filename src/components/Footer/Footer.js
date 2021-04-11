@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeStaus, clearCompletedTodos } from '../../actions/todoActions';
 import {
   FooterClearText,
   FooterContainer,
@@ -11,22 +12,39 @@ import {
 } from './FooterElements';
 
 const Footer = () => {
-  const todos = useSelector(state => state.todoReducer);
-  const totalItems = todos.map(todo => todo).length;
-  const areItems = totalItems > 1 ? 'items' : 'item';
+  const dispatch = useDispatch();
+  const { status } = useSelector(state => state.filters);
+  const todos = useSelector(state => state.todos);
+  const uncompletedTodos = todos.filter(todo => !todo.complete).length;
+  const suffix = uncompletedTodos > 1 ? 's' : '';
+
+  const handleClick = e => {
+    if (!e.target.id) return;
+    dispatch(changeStaus(e.target.id));
+  };
 
   return (
     <FooterContainer>
       <FooterWrap>
         <FooterCountText>
-          {totalItems > 0 ? `${totalItems} ${areItems} left` : 'No item left'}
+          {uncompletedTodos > 0
+            ? `${uncompletedTodos} item${suffix} left`
+            : 'No item left'}
         </FooterCountText>
-        <FooterClearText>Clear Completed</FooterClearText>
+        <FooterClearText onClick={() => dispatch(clearCompletedTodos())}>
+          Clear Completed
+        </FooterClearText>
       </FooterWrap>
-      <FooterListWrap>
-        <FooterListItem>All</FooterListItem>
-        <FooterListItem>Active</FooterListItem>
-        <FooterListItem>Completed</FooterListItem>
+      <FooterListWrap onClick={handleClick}>
+        <FooterListItem id="all" status={status}>
+          All
+        </FooterListItem>
+        <FooterListItem id="active" status={status}>
+          Active
+        </FooterListItem>
+        <FooterListItem id="complete" status={status}>
+          Completed
+        </FooterListItem>
       </FooterListWrap>
       <FooterTagline>Drag and drop to render list</FooterTagline>
     </FooterContainer>

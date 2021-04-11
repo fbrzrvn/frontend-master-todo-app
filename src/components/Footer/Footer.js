@@ -8,16 +8,20 @@ import {
   FooterTagline,
   FooterWrap,
 } from './FooterElements';
+import { useSelector } from 'react-redux';
 
 const Footer = () => {
-  const activeItems = 1;
-  const areItems = activeItems > 1 ? 'items' : 'item';
+  const todos = useSelector(state => state.todoReducer);
+  const activeItems = todos.filter(todo => todo.status === 'active');
+  const areItems = activeItems.length > 1 ? 'items' : 'item';
 
   return (
     <FooterContainer>
       <FooterWrap>
         <FooterCountText>
-          {activeItems > 0 ? `${activeItems} ${areItems} left` : 'No item left'}
+          {activeItems.length > 0
+            ? `${activeItems.length} ${areItems} left`
+            : 'No item left'}
         </FooterCountText>
         <FooterClearText>Clear Completed</FooterClearText>
       </FooterWrap>

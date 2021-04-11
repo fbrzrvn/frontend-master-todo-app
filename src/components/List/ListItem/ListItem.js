@@ -3,11 +3,11 @@ import CloseIcon from '../../../assets/svg/icon-cross.svg';
 import Checkbox from './Checkbox';
 import { CloseBtn, CloseBtnIcon, Item, ItemText } from './ListItemElements';
 
-const ListItem = ({ text }) => {
+const ListItem = ({ todo }) => {
   return (
-    <Item>
-      <Checkbox />
-      <ItemText>{text}</ItemText>
+    <Item completed={todo.complete}>
+      <Checkbox completed={todo.complete} />
+      <ItemText>{todo.text}</ItemText>
       <CloseBtn>
         <CloseBtnIcon src={CloseIcon} alt="cross-icon" />
       </CloseBtn>

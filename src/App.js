@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import Form from './components/Form';
 import Header from './components/Header';
+import List from './components/List';
 import {
   Container,
   darkTheme,
@@ -29,6 +30,7 @@ const App = () => {
         <GlobalStyles width={width} />
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Form />
+        <List />
       </Container>
     </ThemeProvider>
   );

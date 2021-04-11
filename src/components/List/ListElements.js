@@ -7,7 +7,6 @@ export const ListWrap = styled.div`
   transition: all 1s ease;
 
   ${MEDIA.small} {
-    width: 90%;
     margin-top: 1em;
   }
 `;

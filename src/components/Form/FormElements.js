@@ -13,7 +13,6 @@ export const FormWrap = styled.div`
 
   ${MEDIA.small} {
     padding: 0.75em 0.6em;
-    width: 90%;
   }
 `;
 

@@ -1,6 +1,7 @@
 import {
   ADD_TODO,
   CLEAR_COMPLETE,
+  ORDER_TODO,
   REMOVE_TODO,
   TOGGLE_COMPLETE,
 } from '../constants/actionTypes';
@@ -23,6 +24,8 @@ const TodoReducer = (todos = [], action) => {
       );
     case CLEAR_COMPLETE:
       return todos.filter(todo => !todo.complete);
+    case ORDER_TODO:
+      return action.payload;
     default:
       return todos;
   }

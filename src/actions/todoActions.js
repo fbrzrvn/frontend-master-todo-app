@@ -2,6 +2,7 @@ import {
   ADD_TODO,
   CHANGE_STATUS,
   CLEAR_COMPLETE,
+  ORDER_TODO,
   REMOVE_TODO,
   TOGGLE_COMPLETE,
 } from '../constants/actionTypes';
@@ -24,4 +25,8 @@ export const changeStaus = id => {
 
 export const clearCompletedTodos = () => {
   return { type: CLEAR_COMPLETE };
+};
+
+export const orderTodo = todos => {
+  return { type: ORDER_TODO, payload: todos };
 };

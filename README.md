@@ -45,8 +45,8 @@ Complete todo
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [My solution](https://www.frontendmentor.io/solutions/todo-app-using-react-redux-styledcomponents-_CLt6HTGO)
+- Live Site URL: [Live site URL here](https://frontendmaster-todo-app.netlify.app/)
 
 ## My process
 

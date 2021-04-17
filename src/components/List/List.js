@@ -31,11 +31,9 @@ const List = () => {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {currentTodos.length > 0
-                ? currentTodos.map((todo, index) => (
-                    <ListItem key={todo.id} todo={todo} index={index} />
-                  ))
-                : ''}
+              {currentTodos.map((todo, index) => (
+                <ListItem key={todo.id} todo={todo} index={index} />
+              ))}
               {provided.placeholder}
             </TodoList>
           )}

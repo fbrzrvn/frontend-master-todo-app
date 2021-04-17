@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     background-image: url(${({ theme }) => theme.background});
     background-repeat: no-repeat;
     color: ${COLOR.white};
-    font-family: 'Josefin Sans', sans-serif';
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
     line-height: 1;
     padding: 3em 2em;

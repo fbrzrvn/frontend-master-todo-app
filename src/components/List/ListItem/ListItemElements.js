@@ -13,7 +13,7 @@ export const Item = styled.li`
     completed
       ? `color: ${theme.completedItems}; text-decoration: line-through;`
       : `color: ${theme.listItems};`}
-  transition: all 1s ease;
+  transition: background 1s ease, border-bottom 1s ease;
 
   &:first-of-type {
     border-top-left-radius: 5px;

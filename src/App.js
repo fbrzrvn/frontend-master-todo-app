@@ -15,9 +15,8 @@ import useWindowSize from './utils/useWindowSize';
 
 const App = () => {
   const currentTheme = () => {
-    const localTheme = localStorage.getItem('theme');
-    // set default theme to dark
-    return localTheme || 'dark';
+    const localTheme = localStorage.getItem('TODO_THEME');
+    return localTheme || 'dark'; // set default theme to dark
   };
 
   const [theme, toggleTheme] = useTheme(currentTheme);

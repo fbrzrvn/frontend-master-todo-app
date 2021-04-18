@@ -6,14 +6,22 @@ import {
   TOGGLE_COMPLETE,
 } from '../constants/actionTypes';
 
-const TodoReducer = (todos = [], action) => {
+const TODO_ITEMS = 'TODO_ITEMS';
+const initialState = JSON.parse(localStorage.getItem(TODO_ITEMS)) || [];
+
+const TodoReducer = (state = initialState, action) => {
+  let todos;
   switch (action.type) {
     case ADD_TODO:
-      return [...todos, action.payload];
+      todos = [...state, action.payload];
+      localStorage.setItem(TODO_ITEMS, JSON.stringify(todos));
+      return todos;
     case REMOVE_TODO:
-      return todos.filter(todo => todo.id !== action.payload);
+      todos = state.filter(todo => todo.id !== action.payload);
+      localStorage.setItem(TODO_ITEMS, JSON.stringify(todos));
+      return todos;
     case TOGGLE_COMPLETE:
-      return todos.map(todo =>
+      todos = state.map(todo =>
         todo.id === action.payload.id
           ? {
               ...todo,
@@ -22,12 +30,18 @@ const TodoReducer = (todos = [], action) => {
             }
           : todo
       );
-    case CLEAR_COMPLETE:
-      return todos.filter(todo => !todo.complete);
-    case ORDER_TODO:
-      return action.payload;
-    default:
+      localStorage.setItem(TODO_ITEMS, JSON.stringify(todos));
       return todos;
+    case CLEAR_COMPLETE:
+      todos = state.filter(todo => !todo.complete);
+      localStorage.setItem(TODO_ITEMS, JSON.stringify(todos));
+      return todos;
+    case ORDER_TODO:
+      todos = action.payload;
+      localStorage.setItem(TODO_ITEMS, JSON.stringify(todos));
+      return todos;
+    default:
+      return state;
   }
 };
 

@@ -55,6 +55,6 @@ export const FormInput = styled.input`
   }
 
   ${MEDIA.small} {
-    font-size: 1.125em;
+    font-size: 0.8em;
   }
 `;

@@ -7,7 +7,17 @@ import {
 } from '../constants/actionTypes';
 
 const TODO_ITEMS = 'TODO_ITEMS';
-const initialState = JSON.parse(localStorage.getItem(TODO_ITEMS)) || [];
+const initialState = [
+  { id: 1, text: '10 min meditation', complete: false, status: 'active' },
+  { id: 2, text: 'Read for 1 hour', complete: false, status: 'active' },
+  {
+    id: 3,
+    text: 'Complete Todo App on Frontend Mentor',
+    complete: true,
+    status: 'complete',
+  },
+  { id: 4, text: 'Pick up groceries', complete: false, status: 'active' },
+];
 
 const TodoReducer = (state = initialState, action) => {
   let todos;
